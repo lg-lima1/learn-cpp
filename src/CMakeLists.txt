@@ -1,2 +1,2 @@
-# Lesson 0
-add_subdirectory(lesson_0)
+# Chapter 0
+add_subdirectory(introduction)

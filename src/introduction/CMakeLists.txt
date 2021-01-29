@@ -1,8 +1,9 @@
-add_executable(lesson_0 main.cpp)
+add_executable(introduction main.cpp)
 target_link_libraries(
-  lesson_0
+  introduction
   PRIVATE project_options
           project_warnings
           CONAN_PKG::docopt.cpp
           CONAN_PKG::fmt
-          CONAN_PKG::spdlog)
+          CONAN_PKG::spdlog
+          )
