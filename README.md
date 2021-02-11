@@ -6,6 +6,8 @@ You might see a lot of CMake and other CI files. That comes from a template whic
 
 Every chapter is split accordingly to the tutorial, so should be straight forward when searching for something specific.
 
+Be my guest.
+
 ## Chapters
 0. [Introduction](../master/src/introduction)
 1. [Basics](../master/src/basics)
