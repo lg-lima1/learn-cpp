@@ -1,9 +1,5 @@
-# Chapter 0
-add_subdirectory(introduction)
+# Tutorial Sequence
+add_subdirectory(chapters)
 
-# Chapter 1
-add_subdirectory(basics)
-
-
-# Exercises
-add_subdirectory(fibonacci)
+# Exemples and Algorithms
+add_subdirectory(algorithms)
