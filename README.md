@@ -11,3 +11,4 @@ Be my guest.
 ## Chapters
 0. [Introduction](../master/src/introduction)
 1. [Basics](../master/src/basics)
+2. [Functions](../master/src/functions)
