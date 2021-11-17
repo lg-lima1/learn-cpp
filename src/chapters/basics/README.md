@@ -1,6 +1,4 @@
-# Chapter 1 - C++ Basics
-
-## Section 1 - Structure of a C++ program
+# Basics
 Let's breakdown the code snippet bellow, line-by-line:
 
 ```C++
@@ -71,23 +69,6 @@ int main()
 
 See that `spdlog` library generates a very fancy output. This correlates more to the real world, where your program sends logging information to the console or a file and therefore, can help you to solve problems or bugs.
 
-### Questions
-1. What is a statement? R: It's the smallest computation unit in the C++ language. It's the most common in a program.
-
-2. What is a function? R: It's a collection of statements. A function can or not return a value, the type of that value is declared in the function declaration, together with it's name.
-
-3. What is the name of the function that all programs must have? R: main. The entry point of every program.
-
-4. When a program is run, where does execution start? R: In the first statement inside the main function.
-
-5. What symbol are statements in C++ opften ended with? R: A semicolon `;`.
-
-6. What is a syntax error? R: It's when someting inside our code is declared incorrectly, so the compiler does not know exactly what we meant to do with it and throws an error back at compile-time.
-
-7. What is the C++ Standard Library? R: It's a collectin of libraries that comes by standard in any C++ compliant environment. They are developed by the standards comitee, and very often, are very well documented and optimized.
-
-## Section 3 - Introduction to variables
-
 ### Objects and variables
 As is stated in [learncpp.com](https://www.learncpp.com/cpp-tutorial/introduction-to-variables/) : 
 `All computers have memory, called RAM (short for random access memory), that is available for your programs to use. You can think of RAM as a series of mailboxes that can be used to hold data while the program is running. A single piece of data, stored in memory somewhere, is called a value`.
@@ -104,22 +85,8 @@ We can share references of that memory location to different objects using point
 }             // Object is destroyed, memory freed
 ```
 
-### Questions
-
-1. What is data? R: Data is the main reason why we write computer programs, so we can manipulate then. Can be from any source, e.g.: file, network, user input, etc.
-
-2. What is a value? R: A value is the data that is stored inside an object.
-
-3. What is a variable? R: A variable is an object that holds a memory address and a value.
-
-4. What is an identifier? R: Is the name of our object.
-
-5. What is a type? R: Type is defined within object instantiation, and specify the type of data which will be stored.
-
-6. What is an integer? R: Integer is an object type, that only holds integer numbers. There are many integer sizes supported by the compiler, from 8-bit to 64-bit integer. Usually, when defining only with `int` statement, it corresponds to 16-bit integer. 
-
-## Section 4 - Variable assignment and initialization
-Check out this [blog post](https://herbsutter.com/2013/08/12/gotw-94-solution-aaa-style-almost-always-auto/) of Herb Sutter, one of the ISO C++ comitee members, on a modern approach of assigning and initializing objects with use of the `auto` keyword and list initialization combination.
+## Variable assignment and initialization
+Check out this [blog post](https://herbsutter.com/2013/08/12/gotw-94-solution-aaa-style-almost-always-auto/) by Herb Sutter, one of the ISO C++ comitee members, on a modern approach of assigning and initializing objects with use of the `auto` keyword and list initialization combination.
 
 ### Copy initialization
 ```C++
@@ -141,57 +108,3 @@ Check out this [blog post](https://herbsutter.com/2013/08/12/gotw-94-solution-aa
   ...
   auto bar {5};
 ```
-
-### Questions
-1. What is the difference between initialization and assignment? R: Assignment takes place when using copy assignment operator to, again, assign a value to a previously created variable. On the other hand, initialization is the process of creating an object and defining it's type. You can use three different methods of initialization when in combination of a assignment, copy, direct and list initialization.
-
-2. What form of initialization should you be using? R: Preferable method is list initialization, which disables completly narrowing conversion and, as any of the other forms, avoids undefined behavior.
-
-## Section 5 - Introduction to iostream: cout, cin and endl
-
-### Questions
-Consider the following code:
-
-```C++
-#include <fmt/format.h>
-#include <iostream>
-
-int main()
-{
-  fmt::print("Insert a integer number: ");
-
-  int x{ };
-  std::cin >> x;
-
-  fmt::print("You inserted number {}\n", x);
-
-  return 0;  
-}
-```
-
-Run this program multiple times and describe what happens when you enter the following types of input instead:
-
-- A letter, such as h.
-
-  R: Output is 0. Expects a valid number.
-
-- A number with a fractional component.
-
-  R: Input number gets floored (0.9 >> 0 | 0.5 >> 0).
-
-- A small negative integer, such as -3.
-
-  R: Number is valid, because it's a signed integer.
-
-- A word, such as Hello.
-
-  R: Output is 0. Expects a valid number.
-
-- A really big number (at least 3 billion).
-
-  R: Overflow. Variable accepts only signed 32-bit integers (-2'147'483'648 to 2'147'483'647)
-
-  ```
-  Insert a number: 3000000000000.
-  You inserted number 2147483647
-  ```
