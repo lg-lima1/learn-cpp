@@ -1,2 +1,2 @@
-# Exemples and Algorithms
+# Examples and Algorithms
 add_subdirectory(algorithms)
