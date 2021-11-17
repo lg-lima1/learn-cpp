@@ -1,3 +1,0 @@
-add_subdirectory(basics)
-add_subdirectory(introduction)
-add_subdirectory(functions)
