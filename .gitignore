@@ -1,3 +1,6 @@
 
 **/.vscode
 **/build
+
+src/chapters/**/**.cpp
+src/chapters/**/CMakeLists.txt
