@@ -1,9 +1,7 @@
 #include <fmt/format.h>
-#include <spdlog/spdlog.h>
-
 #include <array>
 #include <utility>
-#include <sstream>
+#include <string>
 
 template<uint64_t I>
 struct Fib 
@@ -24,35 +22,25 @@ struct Fib<1>
 };
 
 template<size_t ... I>
-uint64_t fib_impl(std::index_sequence<I...>, const int i)
+uint64_t fib_impl(std::index_sequence<I...>, const uint32_t i)
 {
   constexpr std::array<uint64_t, sizeof...(I)> a = { Fib<I>::val... };
 
-  return a[unsigned(i)];
+  return a[i];
 }
 
-uint64_t fib(const int i)
+uint64_t fib(const uint32_t i)
 {
-  return fib_impl(std::make_index_sequence<95>(), i);
+  return fib_impl(std::make_index_sequence<94>(), i);
 }
 
-int main(int, const char** argv)
+int main(int, char *argv[])
 {
-  spdlog::info("Hello World!");
+  auto val = unsigned(std::stoi(argv[1]));
 
-  std::istringstream iss{ argv[1] };
-  int val{};
-
-  if (iss >> val)
+  if (val < 94) 
   {
-    if (val > 94) 
-    {
-      spdlog::error("Maximum number for calculating the Fibonacci is 94.");
-      val = 94;
-    }
-
-    for(int i = 0; i < val; i++)
-      fmt::print("fib({}) = {}\n", i, fib(i));
+    fmt::print("fib({}) = {}\n", val, fib(val));
   }
 
   return 0;  
