@@ -80,15 +80,17 @@ In short terms, when we declare a variable, we are basically assigning a specifi
 We can share references of that memory location to different objects using pointers. When the object goes out of scope, it imediatelly is deleted, so it's memory can be freed. If that doesn't happens, we are facing a very common and recurrent bug, the infamous `memory leak`.
 
 ```C++
-{             // Inner scope
-  int foo;    // Object instantiation
-}             // Object is destroyed, memory freed
+{                     // Inner scope
+  auto foo = int{};   // Object instantiation
+}                     // Object is destroyed, memory freed
 ```
 
 ## Variable assignment and initialization
 Check out this [blog post](https://herbsutter.com/2013/08/12/gotw-94-solution-aaa-style-almost-always-auto/) by Herb Sutter, one of the ISO C++ comitee members, on a modern approach of assigning and initializing objects with use of the `auto` keyword and list initialization combination.
 
 ### Copy initialization
+Inherited from `C`, copy initialization copies the value from the right hand side (rhs) to the left hand side (lhs) using an implicit conversion sequence.
+
 ```C++
   int foo = 5;
   ...
@@ -96,6 +98,8 @@ Check out this [blog post](https://herbsutter.com/2013/08/12/gotw-94-solution-aa
 ```
 
 ### Direct initialization
+Direct initialization searches for an best possible match of the constructor for this data type using overload resolution and then calls it, and additionally, will do any implicit conversions required.
+
 ```C++
   int foo(5);
   ...
@@ -103,8 +107,10 @@ Check out this [blog post](https://herbsutter.com/2013/08/12/gotw-94-solution-aa
 ```
 
 ### List initialization
+List initialization is very similar to direct initialization, only differs that it disables narrowing conversion. So if a data type cannot safely hold the value that is being assigned to the initilization, the compiler will either throw an error or an warning.
+
 ```C++
-  int foo = int {5};
+  int bar {5};
   ...
-  auto bar {5};
+  auto foo = int{5};
 ```
