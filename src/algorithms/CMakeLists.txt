@@ -1,1 +1,3 @@
 add_subdirectory(fibonacci)
+add_subdirectory(stack_linked_list)
+add_subdirectory(heap_linked_list)
